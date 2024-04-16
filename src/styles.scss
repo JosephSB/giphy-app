@@ -1,1 +1,75 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color: #000000;
+  --bg-color: #f2f2f2;
+  --text-color: #000000;
+  --text-color-2: #ffffff;
+  --bd-color-transparent: #f5f5f55a;
+
+  --primary-font: 'Poppins', sans-serif ;
+  --max-with: 1000px;
+}
+
+* {
+  position: relative;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+/* ================
+  // html, universal, & body
+  // ============= */
+
+html {
+  box-sizing: border-box;
+  color: var(--text-color);
+  font-family: var(--primary-font);
+  background-color: var(--bg-color);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+::selection {
+  color: #fff;
+  background-color: #21aa7d;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  width: 100%;
+  margin: auto;
+}
+
+.main {
+  width: 100%;
+  max-width: var(--max-with);
+  margin: 0 auto;
+}
+
+
+  /*------------ANIMATIONS----------------*/
+  .animateUp {
+    animation: animateUp 1s;
+  }
+
+  @keyframes animateUp {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

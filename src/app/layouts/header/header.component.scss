@@ -1,0 +1,33 @@
+.header{
+  width: 100%;
+  background-color: var(--primary-color);
+  color: var(--text-color-2);
+  .content-header{
+    width: 100%;
+    max-width: var(--max-with);
+    margin: 0 auto;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    //backdrop-filter: blur(10px);
+    //background-color: var(--bd-color-transparent);
+  }
+  &-image{
+    width: 100%;
+    max-width: 400px;
+  }
+  &-menu{
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    .menu-link{
+      cursor: pointer;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+}
