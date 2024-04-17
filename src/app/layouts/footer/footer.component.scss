@@ -11,4 +11,22 @@
   margin: 0;
   color: var(--text-color);
   font-size: 14px;
+  font-weight: 300;
+}
+
+.menu-socialLinks{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+  background-color: var(--bd-color-transparent);
+  backdrop-filter: blur(10px);
+  border-top-right-radius: 10px;
+  margin: 5px 0;
+  border-bottom-right-radius: 10px;
+}
+.link-socialLinks{
+  color: var(--text-color);
 }

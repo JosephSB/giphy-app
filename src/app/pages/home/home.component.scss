@@ -1,0 +1,103 @@
+.home-listtags, .home-listgifs{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.home-listtags{
+  list-style: none;
+  flex-wrap: wrap;
+  font-size: 12px;
+  .tag{
+    width: auto;
+    border: 1px solid #ccc;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color .2s;
+    &:hover{
+      background-color: #ccc;
+    }
+  }
+}
+
+.home-listgifs{
+  flex-wrap: wrap;
+}
+
+.cardgif{
+  //width: 100%;
+  //max-width: 460px;
+  position: relative;
+  cursor: pointer;
+}
+
+.cardgif-gif{
+  width: 100%;
+  border-radius: 10px;
+}
+
+.cardgif-hover {
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  opacity: 0;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: column;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.1) 10%,
+    rgba(0, 0, 0, 0.78) 80%
+  );
+  transition: opacity 300ms ease-in-out 0s;
+}
+
+.cardgif:hover .cardgif-hover  {
+  opacity: 1;
+}
+
+.cardgif-header{
+  transform: none;
+  transition: transform 300ms ease-in-out 0s;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 1rem;
+}
+
+.cardgif-hover:hover .cardgif-header {
+  transform: translateY(-10%);
+}
+
+.cardgif-header-img{
+  border-radius: 50%;
+}
+
+.cardgif-header-info{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  .title {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--text-color-2);
+    margin: 0;
+  }
+  .title span{
+    color: rgb(0, 195, 255);
+  }
+  .description{
+    font-size: 14px;
+    color: var(--text-color-2);
+    margin: 0;
+  }
+}
