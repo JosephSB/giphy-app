@@ -1,5 +1,7 @@
 <ul class="home-listtags">
-  <li class="tag" *ngFor="let tag of tags()"><i class="fa-solid fa-hashtag"></i>&nbsp;{{tag}}</li>
+  <li class="tag" *ngFor="let tag of tags()">
+    <i class="fa-solid fa-hashtag"></i>&nbsp;{{ tag }}
+  </li>
 </ul>
 
 <div class="home-listgifs">
@@ -10,6 +12,11 @@
       [alt]="gif.title"
     />
     <div class="cardgif-hover">
+      <i
+        class="fa-solid fa-heart fa-2x cardgif-fav"
+        [class.active]="isFavorite(gif.id)"
+        (click)="handleGiftFavoriteInLocalStorage(gif)"
+      ></i>
       <div class="cardgif-header" *ngIf="gif.user">
         <img
           class="cardgif-header-img"

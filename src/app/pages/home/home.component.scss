@@ -38,6 +38,16 @@
   width: 100%;
   border-radius: 10px;
 }
+.cardgif-fav{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  color: var(--bg-color);
+  &.active{
+    color: #FF8787;
+  }
+}
 
 .cardgif-hover {
   border-radius: 5px;

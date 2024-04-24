@@ -1,9 +1,18 @@
 <header class="header">
   <div class="content-header">
-    <img class="header-image" src="https://developers.giphy.com/branch/master/static/header-logo-0fec0225d189bc0eae27dac3e3770582.gif" alt="Giphy">
+    <img
+      [routerLink]="['/']"
+      class="header-image"
+      src="https://developers.giphy.com/branch/master/static/header-logo-0fec0225d189bc0eae27dac3e3770582.gif"
+      alt="Giphy"
+    />
     <ul class="header-menu">
-      <li class="menu-link"><i class="fa-solid fa-arrow-trend-up"></i>&nbsp;Tendencia</li>
-      <li class="menu-link"><i class="fa-regular fa-star"></i>&nbsp;Favoritos</li>
+      <li class="menu-link" [routerLink]="['/tendencias']">
+        <i class="fa-solid fa-arrow-trend-up"></i>&nbsp;Tendencia
+      </li>
+      <li class="menu-link" [routerLink]="['/favoritos']">
+        <i class="fa-regular fa-star"></i>&nbsp;Favoritos
+      </li>
     </ul>
   </div>
 </header>
