@@ -16,30 +16,47 @@ export class GiphyService {
     this.url = config.URL_API;
   }
 
-  getTrendingGifs(
-    page: number = 1,
-    size: number = 20
-  ): Observable<IGif[]> {
+  getTrendingGifs(page: number = 1, size: number = 20): Observable<IGif[]> {
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.get<{ data: any[] }>(this.url + 'gifs/trending', {
-      headers: headers,
-      params: {
-        api_key: config.API_KEY,
-        limit: size.toString(),
-        offset: ((page - 1) * size).toString(),
-        //rating: 'g',
-        //bundle: 'messaging_non_clips',
-      },
-    }).pipe(map( (res) => res.data ));
+    return this.http
+      .get<{ data: any[] }>(this.url + 'gifs/trending', {
+        headers: headers,
+        params: {
+          api_key: config.API_KEY,
+          limit: size.toString(),
+          offset: ((page - 1) * size).toString(),
+          //rating: 'g',
+          //bundle: 'messaging_non_clips',
+        },
+      })
+      .pipe(map((res) => res.data));
   }
 
   getTrendingTags(): Observable<string[]> {
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.get<{ data: any[] }>(this.url + 'trending/searches', {
-      headers: headers,
-      params: {
-        api_key: config.API_KEY,
-      },
-    }).pipe(map( (res) => res.data ));
+    return this.http
+      .get<{ data: any[] }>(this.url + 'trending/searches', {
+        headers: headers,
+        params: {
+          api_key: config.API_KEY,
+        },
+      })
+      .pipe(map((res) => res.data));
+  }
+
+  getTrendingStickers(page: number = 1, size: number = 20): Observable<IGif[]> {
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http
+      .get<{ data: any[] }>(this.url + 'stickers/trending', {
+        headers: headers,
+        params: {
+          api_key: config.API_KEY,
+          limit: size.toString(),
+          offset: ((page - 1) * size).toString(),
+          //rating: 'g',
+          //bundle: 'messaging_non_clips',
+        },
+      })
+      .pipe(map((res) => res.data));
   }
 }
