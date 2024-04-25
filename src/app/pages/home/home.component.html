@@ -5,41 +5,5 @@
 </ul>
 
 <div class="home-listgifs">
-  <div class="cardgif" *ngFor="let gif of gifs()">
-    <img
-      class="cardgif-gif"
-      [src]="gif.images.original.url"
-      [alt]="gif.title"
-    />
-    <div class="cardgif-hover">
-      <i
-        class="fa-solid fa-heart fa-2x cardgif-fav"
-        [class.active]="isFavorite(gif.id)"
-        (click)="handleGiftFavoriteInLocalStorage(gif)"
-      ></i>
-      <div class="cardgif-header" *ngIf="gif.user">
-        <img
-          class="cardgif-header-img"
-          width="50"
-          height="50"
-          [src]="gif.user.avatar_url"
-          [alt]="gif.user.username"
-        />
-        <div class="cardgif-header-info">
-          <p class="title">
-            {{ gif.user.username }}&nbsp;<span *ngIf="gif.user.is_verified"
-              ><i class="fa-solid fa-circle-check"></i
-            ></span>
-          </p>
-          <p class="description" *ngIf="gif.user.description.length > 0">
-            {{
-              gif.user.description.length > 100
-                ? gif.user.description.slice(0, 100) + "..."
-                : gif.user.description
-            }}
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-gif-card  *ngFor="let gif of gifs()" [gif]="gif"></app-gif-card>
 </div>

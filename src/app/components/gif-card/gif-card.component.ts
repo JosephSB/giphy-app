@@ -1,39 +1,17 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IGif } from '../../models/gif.model';
-import { GiphyService } from '../../services/giphy.service';
 import { CommonModule } from '@angular/common';
-import { GifCardComponent } from '../../components/gif-card/gif-card.component';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-gif-card',
   standalone: true,
-  imports: [CommonModule, GifCardComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
-  providers: [GiphyService],
+  imports: [CommonModule],
+  templateUrl: './gif-card.component.html',
+  styleUrl: './gif-card.component.scss'
 })
-export class HomeComponent {
-  giphyService = inject(GiphyService);
+export class GifCardComponent {
+  @Input() gif: IGif = {} as IGif;
 
-  gifs = signal<IGif[]>([]);
-  tags = signal<string[]>([]);
-
-  ngOnInit() {
-    this.getGifs();
-    this.getTrendingTags();
-  }
-
-  getGifs() {
-    this.giphyService.getTrendingGifs().subscribe((data) => {
-      this.gifs.update((prev) => [...prev, ...data]);
-    });
-  }
-
-  getTrendingTags() {
-    this.giphyService.getTrendingTags().subscribe((data) => {
-      this.tags.set(data);
-    });
-  }
 
   isFavorite(gif_id: string) {
     const favorite_gifs = JSON.parse(

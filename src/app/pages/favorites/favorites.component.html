@@ -1,1 +1,5 @@
 <p>Tus Favoritos</p>
+<br>
+<div class="favorites-listgifs">
+  <app-gif-card  *ngFor="let gif of favorite_gifs()" [gif]="gif"></app-gif-card>
+</div>
