@@ -16,7 +16,6 @@ export class EmojisComponent {
   giphyService = inject(GiphyService);
 
   stickers = signal<IGif[]>([]);
-  tags = signal<string[]>([]);
 
   ngOnInit() {
     this.getStickers();

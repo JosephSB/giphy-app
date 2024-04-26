@@ -1,12 +1,5 @@
-<div class="container-home">
-  <ul class="home-listtags">
-    <li>Stickers</li>
-    <li class="tag" *ngFor="let tag of tags()">
-      <i class="fa-solid fa-hashtag"></i>&nbsp;{{ tag }}
-    </li>
-  </ul>
 
-  <div class="home-listgifs">
-    <app-gif-card style="width: 100%;"  *ngFor="let sticker of stickers()" [gif]="sticker"></app-gif-card>
-  </div>
+<h1>Stickers</h1>
+<div class="home-listgifs">
+  <app-gif-card *ngFor="let sticker of stickers()" [gif]="sticker"></app-gif-card>
 </div>

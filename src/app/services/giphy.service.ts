@@ -59,4 +59,21 @@ export class GiphyService {
       })
       .pipe(map((res) => res.data));
   }
+
+  searchGif(value: string, page: number = 1, size: number = 20): Observable<IGif[]> {
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http
+      .get<{ data: any[] }>(this.url + 'gifs/search', {
+        headers: headers,
+        params: {
+          api_key: config.API_KEY,
+          q: value,
+          limit: size.toString(),
+          offset: ((page - 1) * size).toString(),
+          //rating: 'g',
+          //bundle: 'messaging_non_clips',
+        },
+      })
+      .pipe(map((res) => res.data));
+  }
 }

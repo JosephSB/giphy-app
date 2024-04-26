@@ -1,0 +1,39 @@
+
+.home-listtags{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  font-size: 12px;
+  .tag{
+    width: auto;
+    border: 1px solid #ccc;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color .2s;
+    &:hover{
+      background-color: #ccc;
+    }
+  }
+  .tag-title{
+    width: 100%;
+    font-weight: bold;
+  }
+}
+
+.home-listgifs{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.home-listgifs{
+  flex-wrap: wrap;
+}
