@@ -25,6 +25,18 @@
         <i class="fa-solid fa-hashtag"></i>&nbsp;{{ tag }}
       </li>
     </ul>
+    @if (loader_tags()) {
+      <ul class="home-listtags">
+        <ngx-skeleton-loader
+          *ngFor="let x of [1, 2, 3, 4, 5]"
+          animation="progress"
+          class="loader-tags"
+          [theme]="{ width: '80px', height: '30px' }"
+          count="5"
+          appearance="custom-content"
+        />
+      </ul>
+    }
   </div>
 
   <div class="home-listgifs">
@@ -33,5 +45,15 @@
       *ngFor="let gif of gifs()"
       [gif]="gif"
     ></app-gif-card>
+    @if (loader_gifs()) {
+    <ngx-skeleton-loader
+      *ngFor="let x of [1, 2, 3]"
+      animation="progress"
+      class="loader"
+      [theme]="{ width: '100%', height: '300px' }"
+      count="5"
+      appearance="custom-content"
+    />
+    }
   </div>
 </div>
