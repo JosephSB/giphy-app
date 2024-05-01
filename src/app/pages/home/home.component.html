@@ -26,20 +26,26 @@
       </li>
     </ul>
     @if (loader_tags()) {
-      <ul class="home-listtags">
-        <ngx-skeleton-loader
-          *ngFor="let x of [1, 2, 3, 4, 5]"
-          animation="progress"
-          class="loader-tags"
-          [theme]="{ width: '80px', height: '30px' }"
-          count="5"
-          appearance="custom-content"
-        />
-      </ul>
+    <ul class="home-listtags">
+      <ngx-skeleton-loader
+        *ngFor="let x of [1, 2, 3, 4, 5]"
+        animation="progress"
+        class="loader-tags"
+        [theme]="{ width: '80px', height: '30px' }"
+        count="5"
+        appearance="custom-content"
+      />
+    </ul>
     }
   </div>
 
-  <div class="home-listgifs">
+  <div
+    class="home-listgifs"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="50"
+    (scrolled)="handlePagination()"
+  >
     <app-gif-card
       style="width: 100%"
       *ngFor="let gif of gifs()"

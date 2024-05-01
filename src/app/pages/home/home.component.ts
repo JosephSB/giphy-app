@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { GifCardComponent } from '../../components/gif-card/gif-card.component';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     GifCardComponent,
     ReactiveFormsModule,
     NgxSkeletonLoaderModule,
+    InfiniteScrollModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
@@ -26,6 +28,11 @@ export class HomeComponent {
   loader_tags = signal(true);
   gifs = signal<IGif[]>([]);
   tags = signal<string[]>([]);
+
+  pagination = {
+    pag: 1,
+    size: 20
+  }
 
   inputSearchCtrl = new FormControl('', {
     nonNullable: true,
@@ -43,7 +50,7 @@ export class HomeComponent {
 
   getGifs() {
     this.loader_gifs.set(true);
-    this.giphyService.getTrendingGifs().subscribe((data) => {
+    this.giphyService.getTrendingGifs(this.pagination.pag).subscribe((data) => {
       this.gifs.update((prev) => [...prev, ...data]);
       this.loader_gifs.set(false);
     });
@@ -78,5 +85,10 @@ export class HomeComponent {
     this.inputSearchCtrl.setValue('');
     this.gifs.set([]);
     this.getGifs();
+  }
+
+  handlePagination() {
+    this.pagination.pag++;
+    if(this.inputSearchCtrl.value.length === 0) this.getGifs();
   }
 }
